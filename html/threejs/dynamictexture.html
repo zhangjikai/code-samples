@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>threejs-动态显示文字信息</title>
+
+    <script type="text/javascript" src="../libs/threejs/three.js"></script>
+    <script type="text/javascript" src="../libs/threejs/OrbitControls.js"></script>
+    <script type="text/javascript" src="../libs/threejs/threex.dynamictexture.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0 auto;
+        }
+        div#canvasFrame {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #msg {
+            text-align: center;
+            margin: 0px;
+            line-height: 1.5em;
+            height: 50px;
+            color: #FFFFFF;
+            background: #004A47;
+        }
+
+        #msg a{
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        var renderer;
+        var width;
+        var height;
+        function initThree() {
+            width = window.innerWidth;
+            height = window.innerHeight - 60;
+            renderer = new THREE.WebGLRenderer({
+                antialias: true
+            });
+            renderer.setSize(width, height);
+            document.getElementById('canvasFrame').appendChild(renderer.domElement);
+            renderer.setClearColor(0xffffff, 1.0);
+        }
+
+        var camera;
+        function initCamera() {
+            camera = new THREE.PerspectiveCamera(50, width / height, 1, 1000);
+            camera.position.x = 100;
+            camera.position.y = 100;
+            camera.position.z = 500;
+            camera.up.x = 0;
+            camera.up.y = 1;
+            camera.up.z = 0;
+            camera.lookAt({
+                x: 0,
+                y: 0,
+                z: 0
+            });
+        }
+
+        var scene;
+
+        function initScene() {
+            scene = new THREE.Scene();
+        }
+
+        var light;
+        function initLight() {
+            light = new THREE.DirectionalLight(0xffffff, 1.0, 0);
+            light.position.set(100, 100, 200);
+            scene.add(light);
+        }
+
+        var cube;
+        function initObject() {
+
+            var dynamicTexture = new THREEx.DynamicTexture(512, 512)
+            dynamicTexture.context.font = "bold " + (0.2 * 512) + "px Arial";
+
+            // update the text
+            dynamicTexture.clear("#ff0")
+            // dynamictexture.drawText('Hello', undefined, 256, 'red')
+            dynamicTexture.drawTextCooked('1', {
+                lineHeight: 0.5,
+                align: "center",
+                fillStyle: "red"
+            });
+
+            var geometry = new THREE.BoxGeometry(100, 100, 100);
+            var material = new THREE.MeshBasicMaterial({
+                map: dynamicTexture.texture
+            });
+
+            var mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+        }
+
+        function render() {
+            renderer.clear();
+            renderer.render(scene, camera);
+            requestAnimationFrame(render);
+        }
+
+        var controls;
+        function threeStart() {
+            initThree();
+            initCamera();
+            initScene();
+            initLight();
+            initObject();
+            render();
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+        }
+
+        window.onload = function () {
+            threeStart();
+        }
+    </script>
+</head>
+<body>
+<div id="msg">在物体上显示文字(threex.dynamictexture.js)<br />
+<a href="http://learningthreejs.com/blog/2014/05/02/easy-to-use-dynamic-texture-to-write-text-in-your-3d-object-with-threex-dot-dynamictexture-game-extensions-for-three-dot-js/">点此</a>&nbsp;查看原文</div>
+<div id="canvasFrame"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 插件地址：https://github.com/ehpc/bootstrap-waitingfor -->
+    <title>加载插件</title>
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="../libs/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap-waitingfor.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div>
+    <button id="open" class="btn btn-primary ">Click Me</button>
+</div>
+
+<script type="text/javascript">
+    $("#open").click(function () {
+        waitingDialog.show();
+
+        setTimeout(function() {
+            waitingDialog.hide();
+        },2000);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 
+        本代码来自：http://www.ruanyifeng.com/blog/2015/07/flex-examples.html
+        注意Flex并不支持IE10以下的IE浏览器,详细支持浏览器列表：http://caniuse.com/#search=flex
+    -->
+    <meta charset="utf-8">
+    <title>Flex--圣杯布局</title>
+    <style type="text/css">
+    .HolyGrail {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    
+    .header,
+    .footer {
+        flex: 1;
+        background: #abb;
+    }
+    
+    .HolyGrail-body {
+        display: flex;
+        /* 3表示所占的份数，本例总共分为5份 */
+        flex: 3;
+    }
+    
+    .HolyGrail-content {
+        flex: 1;
+        background: #acdaaa;
+    }
+    
+    .HolyGrail-nav,
+    .HolyGrail-ads {
+        /* 两个边栏的宽度设为12em */
+        flex: 0 0 12em;
+        background: #faaccc;
+    }
+    </style>
+</head>
+
+<body class="HolyGrail">
+    <div class="header"></div>
+    <div class="HolyGrail-body">
+        <div class="HolyGrail-nav"></div>
+        <div class="HolyGrail-content"></div>
+        <div class="HolyGrail-ads"></div>
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>

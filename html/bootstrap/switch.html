@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 插件地址：https://github.com/nostalgiaz/bootstrap-switch -->
+    <title>开关切换插件</title>
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap-switch.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="../libs/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap-switch.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("[name='my-checkbox']").bootstrapSwitch();
+
+            $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
+                console.log(this); // DOM element
+                console.log(event); // jQuery event
+                console.log(state); // true | false
+            });
+        });
+    </script>
+</head>
+<body>
+<div style="margin: 20px">
+    <input type="checkbox" name="my-checkbox" data-on-text="是" data-off-text="否" checked>
+</div>
+
+</body>
+</html>

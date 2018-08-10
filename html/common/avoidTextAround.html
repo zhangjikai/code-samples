@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 
+        本代码来自 http://segmentfault.com/a/1190000003827247 
+        如果仅对.avatar左浮，后面的comment不做处理，那么就会出现文字环绕的现象
+        解决方法：
+        1. 为comment添加一个左边距 .comment
+        2. 为comment添加overflow:hidden .comment1
+    -->
+    <meta charset="utf-8">
+    <title>防止文字环绕</title>
+    <style type="text/css">
+    .container {
+        margin: 20px;
+        border: 1px solid #212121;
+        width: 300px;
+        background-color: #009688;
+        overflow: hidden;
+    }
+    
+    .avatar {
+        width: 70px;
+        height: 70px;
+        float: left;
+        margin: 10px;
+        background-color: #ffc107;
+    }
+
+
+    .comment {
+        /* 方法一 */
+        margin-left: 90px;
+    }
+
+    .comment1{
+        /* 方法二 */
+        overflow: hidden;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="avatar"></div>
+        <div class="comment">
+            <p>In a block formatting context, each box's left outer edge touches the left edge of the containing block. This is true even in the presence of floats, unless the box establishes a new block formatting context (in which case the box itself may become narrower due to the floats).</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="avatar"></div>
+        <div class="comment1">
+            <p>In a block formatting context, each box's left outer edge touches the left edge of the containing block. This is true even in the presence of floats, unless the box establishes a new block formatting context (in which case the box itself may become narrower due to the floats).</p>
+        </div>
+    </div>
+</body>
+
+</html>

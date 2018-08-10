@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!-- 下面的语句不可缺少，其中user-scalable=0用来说明用户不可缩放网页-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0">
+    <title>根据设备不同自动调节Canvas大小</title>
+    
+    <style type="text/css">
+
+        body {
+            background: #faf8ef;
+        }
+
+        #canvas {
+            display: block;
+            margin: 0 auto;
+            background: #00ffff;
+            border: 2px solid green;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <canvas id="canvas"></canvas>
+
+    <script type="text/javascript">
+    //判断是不是手机访问
+    var isMobile = {
+        Android: function () {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function () {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function () {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function () {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function () {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function () {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
+    function initCanvasWH(canv) {
+        var isPhone = isMobile.any();
+        if (isPhone) {
+            //如果是手机访问，将canvas大小设为网页可见的大小，乘以0.96是为了四边留些空隙
+            canv.width = parseInt(window.innerWidth * 0.96);
+            canv.height = parseInt(window.innerHeight * 0.96);
+        } else {
+            canv.width = 300;
+            canv.height = 500;
+        }
+    }
+
+    var canvas = document.getElementById("canvas");
+    initCanvasWH(canvas);
+
+</script>
+</body>
+</html>

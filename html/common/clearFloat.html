@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 
+    	本代码来自 http://segmentfault.com/a/1190000003827247 
+    	如果一个块级元素的所有子元素都浮动了，那么它的高度就为 0，
+		此时父元素就会只剩下边框。解决这个问题有两个办法：
+		1. 为父元素添加overflow:hidden来清除浮动 .container
+		2. 为容器添加伪类 .container1
+    -->
+    <meta charset="utf-8">
+    <title>清除浮动</title>
+    <style type="text/css">
+    .container {
+        margin: 20px;
+        border: 1px solid #212121;
+        width: 300px;
+        background-color: #009688;
+        /* 方法一 */
+        overflow: hidden;
+    }
+    
+    .container1 {
+        margin: 20px;
+        border: 1px solid #212121;
+        width: 300px;
+        background-color: #009688;
+    }
+    
+    /* 方法二 */
+    .container1:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+    
+    .c1 {
+        float: left;
+        margin: 10px;
+        width: 100px;
+        height: 40px;
+        background-color: #FFC107;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="c1">第一块</div>
+        <div class="c1">第二块</div>
+        <div class="c1">第三块</div>
+    </div>
+    <div class="container1">
+        <div class="c1">第四块</div>
+        <div class="c1">第五块</div>
+        <div class="c1">第六块</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DrawImage预加载图片</title>
+
+    <style type="text/css">
+        #content {
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadImages, true);
+
+        var images = new Array(3), imageNums = 0;
+
+        function loadImages() {
+            for (var i = 0; i < images.length; i++) {
+                images[i] = new Image();
+                images[i].addEventListener("load", trackProcess, true);
+                images[i].src = "images/01.jpg";
+            }
+        }
+
+        function trackProcess() {
+            imageNums++;
+            if (imageNums = images.length) {
+                drawImages();
+            }
+        }
+
+        function drawImages() {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            for (var i = 0; i < images.length; i++) {
+                context.drawImage(images[i], 200 * i, 0);
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div id="content">
+    <canvas id="canvas" width="800" height="500"></canvas>
+</div>
+</body>
+</html>

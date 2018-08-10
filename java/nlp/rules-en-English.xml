@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xsd/print.xsl" ?>
+<?xml-stylesheet type="text/css" href="xsd/rules.css"
+        title="Easy editing stylesheet" ?>
+
+<rules lang="en" xsi:noNamespaceSchemaLocation="xsd/rules.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <category id="Verb" name="Possible Typo" type="misspelling">
+        <rule id="ARE_SIX" name="Possible typo 'bed/bat(bad) English/...'">
+            <!--<pattern>
+                <token >can't</token>
+            </pattern>-->
+            <regexp>can't</regexp>
+            <message>Did you mean <suggestion>cannot</suggestion>?</message>
+            <url>http://some-server.org/the-bed-bad-error</url>
+            <example type="correct">You
+                <marker>cannot do this</marker> </example>
+            <example correction="bad" type="incorrect">You
+                <marker>can't</marker>do this </example>
+        </rule>
+    </category>
+</rules>

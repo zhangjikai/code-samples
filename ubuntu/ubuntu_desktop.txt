@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=clion
+Comment=clion 1.0.5
+Exec=/soft/clion-1.0.5/bin/clion.sh
+Icon=/soft/clion-1.0.5/bin/clion.svg
+Terminal=false
+Type=Application
+Categories=Development; 
+
+
+
+#######################################
+## 1. 创建xx.desktop文件
+## 2. 填入上述内容,修改Exec和Icon项
+## 3. 添加可执行权限 chmod +x xx.desktop
+#######################################
+

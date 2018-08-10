@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jquery-upload-file demo</title>
+    <script src="http://7xqp2l.com1.z0.glb.clouddn.com/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        #content {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .red_color{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="content"></div>
+
+<script>
+    var content = $("#content");
+    $("<h1 />", {
+        "text":"Hello World",
+        "class" : "red_color"
+    }).appendTo(content);
+
+    var ulObj = $("<ul />",{
+        "id" : "ulObj"
+    }).appendTo(content);
+
+    for(var i = 0; i < 4; i++) {
+        $("<li />", {
+            "text" : "这是项目" + i
+        }).appendTo(ulObj);
+    }
+
+    var btnObj = $("<button />", {
+        "text" : "点我删除列表",
+        "id" : "btnObj"
+    }).appendTo(content);
+
+    $("#btnObj").click(function(e) {
+        $("#ulObj").remove();
+    })
+
+
+</script>
+</body>
+</html>

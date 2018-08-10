@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jquery 二维码生成插件</title>
+    <script src="http://7xqp2l.com1.z0.glb.clouddn.com/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="http://7xqp2l.com1.z0.glb.clouddn.com/jquery.qrcode.min.js"></script>
+
+    <style type="text/css">
+        #qrcode1{
+            float: left;
+            margin-right: 20px;
+        }
+
+        #qrcode2{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<div id="qrcode1"></div>
+<div id="qrcode2"></div>
+
+<script type="text/javascript">
+    $('#qrcode1').qrcode("http://zhangjikai.com");
+    $('#qrcode2').qrcode({width: 128,height: 128,text: "http://zhangjikai.com"});
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--插件地址：https://github.com/scottoffen/jquery.toaster -->
+    <title>信息提示插件</title>
+    <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="../libs/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../libs/bootstrap/js/jquery.toaster.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <style type="text/css">
+        @media screen and (min-width: 800px) {
+            .center_toaster {
+                right: 30%;
+                width: 40%;
+            }
+        }
+
+        @media screen and (min-width: 500px) and (max-width: 799px) {
+            .center_toaster {
+                right: 20%;
+                width: 60%;
+            }
+        }
+
+        @media screen and (min-width: 200px ) and (max-width: 499px) {
+            .center_toaster {
+                right: 5%;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button id="open" class="btn btn-primary ">Click Me</button>
+</div>
+
+<script type="text/javascript">
+
+    $.toaster({
+        settings: {
+            'toaster': {
+                'class': 'center_toaster',
+                'css': {
+                    'position': 'fixed',
+                    'top': '2px',
+                    'zIndex': 50000
+                }
+            }
+        }
+    });
+    $("#open").click(function () {
+        $.toaster({message: 'Your222 message here', title: 'Your Title', priority: 'danger'});
+    })
+</script>
+</body>
+</html>
