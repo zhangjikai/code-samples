@@ -1,4 +1,4 @@
-package com.zhangjikao.sample.generic;
+package com.zhangjikai.sample.generic;
 
 import java.util.ArrayList;
 import java.util.HashMap;

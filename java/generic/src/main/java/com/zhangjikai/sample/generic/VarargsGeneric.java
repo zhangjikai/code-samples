@@ -1,4 +1,4 @@
-package com.zhangjikao.sample.generic;
+package com.zhangjikai.sample.generic;
 
 /**
  * @author Jikai Zhang
