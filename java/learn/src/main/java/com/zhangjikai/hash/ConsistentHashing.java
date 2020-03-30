@@ -1,4 +1,4 @@
-package com.zhangjkai.hash;
+package com.zhangjikai.hash;
 
 import java.util.LinkedList;
 import java.util.List;

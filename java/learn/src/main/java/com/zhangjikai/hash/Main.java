@@ -1,4 +1,4 @@
-package com.zhangjkai.hash;
+package com.zhangjikai.hash;
 
 import static java.util.stream.Collectors.toList;
 
